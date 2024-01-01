@@ -43,6 +43,8 @@ public class Game
 
     public readonly List<Genre> Genres;
     
+    // Class Methods
+    
     public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres)
     {
         Name = name;
@@ -64,6 +66,8 @@ public class Game
             genre.Games.Add(this);
         }
     }
+    
+    // Methods
 
     public void TurnTheGameOn()
     {
