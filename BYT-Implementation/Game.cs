@@ -42,8 +42,9 @@ public class Game
     
 
     public readonly List<Genre> Genres;
+    public readonly List<GamingPlatform> GamingPlatforms;
     
-    public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres)
+    public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres,List<GamingPlatform> gamingPlatforms)
     {
         Name = name;
         Price = price;
@@ -55,13 +56,18 @@ public class Game
         if (genres.Count < 1)
             throw new ArgumentException("The game cannot have no genre");
         Genres = genres;
-        
+        GamingPlatforms = gamingPlatforms;
+
         Reviews = new List<Review>();
         
         Games.Add(this);
         foreach (var genre in Genres)
         {
             genre.Games.Add(this);
+        }
+        foreach (var gamingPlatform in GamingPlatforms)// NIE JESTEM PEWIEN, ale robię jak z Genre
+        {
+            gamingPlatform.Games.Add(this);
         }
     }
 
