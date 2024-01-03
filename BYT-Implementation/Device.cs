@@ -2,9 +2,13 @@
 
 public class Device
 {
+    
+    // Fields
     protected int Id { get; init; }
     public bool IsUsed { get; set; }
     protected Session Session { get; set; }
+    
+    // Connections
 
     public readonly List<GamingPlatform> GamingPlatforms;
 
@@ -19,6 +23,5 @@ public class Device
         {
             throw new ArgumentException("Device supposed to have at least one gaming platform.");
         }
-
     }
 }
