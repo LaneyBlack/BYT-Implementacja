@@ -15,7 +15,7 @@ public class GamingPlatform
             int counter = 0;
             foreach (var device in Devices)
             {
-                if (device.isUsed)
+                if (device.IsUsed)
                 {
                     counter++;
                 }

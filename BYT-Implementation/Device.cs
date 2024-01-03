@@ -2,19 +2,23 @@
 
 public class Device
 {
-    protected int id { get; init; }
-    public bool isUsed { get; set; }
+    protected int Id { get; init; }
+    public bool IsUsed { get; set; }
+    protected Session Session { get; set; }
 
     public readonly List<GamingPlatform> GamingPlatforms;
 
-    public Device(List<GamingPlatform> gamingPlatforms, int id, bool isUsed)
+    public Device(List<GamingPlatform> gamingPlatforms, int id, bool isUsed, Session session)
     {
-        this.id = id;
-        this.isUsed = isUsed;
+        Id = id;
+        IsUsed = isUsed;
         GamingPlatforms = gamingPlatforms;
-        if (gamingPlatforms.Count<1)
+        Session = session;
+
+        if (gamingPlatforms.Count < 1)
         {
             throw new ArgumentException("Device supposed to have at least one gaming platform.");
         }
+
     }
 }
