@@ -5,7 +5,7 @@ public class Genre
     public string Name { get; set; }
     public string Description { get; set; }
 
-    public readonly List<Game> Games;
+    public readonly List<Game> Games; //123
 
     public Genre(string name, string description)
     {
