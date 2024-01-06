@@ -7,6 +7,7 @@ public class GamingPlatform
     
     // Connections
     public readonly List<Device> Devices;
+    
     public readonly List<Game> Games;
 
     public int NumberOfAllDevices => Devices.Count;
