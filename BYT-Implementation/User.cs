@@ -21,16 +21,16 @@ public class User
     public string LastName { get; set; }
     
     // Connections
+    public List<Review> Reviews;
+    public List<Progression> Progressions;
     
-    
-    public List<Review> Reviews; // from DB
-    
-    public User(List<Review> reviews, string login, DateOnly birthDate, string name, string lastName)
+    public User(string login, DateOnly birthDate, string name, string lastName)
     {
-        Reviews = reviews;
         Login = login;
         BirthDate = birthDate;
         Name = name;
         LastName = lastName;
+        Reviews = new List<Review>();
+        Progressions = new List<Progression>();
     }
 }
