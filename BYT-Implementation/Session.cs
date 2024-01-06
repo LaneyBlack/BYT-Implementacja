@@ -3,9 +3,9 @@
 public class Session
 {
     protected int Id { get; init; }
-    protected int maxLength { get; init; }
+    protected int MaxLength { get; init; } // in hours
     public DateOnly ReleaseDate { get; set; }
-    public int Length { get; set; }//w godzinach
+    public int Length { get; set; } //in hours
     public bool IsOpen { get; set; }
 
     protected Device Device { get; set; }
@@ -13,7 +13,7 @@ public class Session
     public Session(int id, DateOnly releaseDate, int length, bool isOpen, Device device)
     {
         Id = id;
-        maxLength = 6;
+        MaxLength = 6;
         ReleaseDate = releaseDate;
         Length = length;
         IsOpen = isOpen;

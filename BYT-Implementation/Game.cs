@@ -40,8 +40,8 @@ public class Game
         }
     }
     
-
     public readonly List<Genre> Genres;
+    
     public readonly List<GamingPlatform> GamingPlatforms;
     
     public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres,List<GamingPlatform> gamingPlatforms)
@@ -62,11 +62,12 @@ public class Game
         Reviews = new List<Review>();
         
         Games.Add(this);
+        
         foreach (var genre in Genres)
         {
             genre.Games.Add(this);
         }
-        foreach (var gamingPlatform in GamingPlatforms)// NIE JESTEM PEWIEN, ale robię jak z Genre
+        foreach (var gamingPlatform in GamingPlatforms)
         {
             gamingPlatform.Games.Add(this);
         }
