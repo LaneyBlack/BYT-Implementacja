@@ -37,4 +37,23 @@ public class User
         Progressions = new List<Progression>();
         Wishlist = new List<Game>();
     }
+    
+    public void EditProfile() {
+        
+    }
+
+    public void TickPayment() {
+    }
+
+    public void ShowWishList()
+    {
+        
+    }
+    
+    // ---===--- Static ---===---
+
+    public static void ShowProfile(string login)
+    {
+        
+    }
 }
