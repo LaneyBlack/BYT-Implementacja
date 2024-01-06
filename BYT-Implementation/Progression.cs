@@ -18,5 +18,6 @@ public class Progression
         Nickname = nickname;
         Game = game;
         User = user;
+        user.Progressions.Add(this);
     }
 }

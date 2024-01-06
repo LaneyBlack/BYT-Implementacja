@@ -44,7 +44,7 @@ public class Game
     
     public readonly List<GamingPlatform> GamingPlatforms;
     
-    public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres,List<GamingPlatform> gamingPlatforms)
+    public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate, string publisher, int ageRequirements, List<Genre> genres, List<GamingPlatform> gamingPlatforms)
     {
         Name = name;
         Price = price;

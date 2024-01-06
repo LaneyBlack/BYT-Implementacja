@@ -23,6 +23,7 @@ public class User
     // Connections
     public List<Review> Reviews;
     public List<Progression> Progressions;
+    public List<PaymentData> PaymentDatas;
     
     public User(string login, DateOnly birthDate, string name, string lastName)
     {
@@ -30,6 +31,7 @@ public class User
         BirthDate = birthDate;
         Name = name;
         LastName = lastName;
+        PaymentDatas = new List<PaymentData>();
         Reviews = new List<Review>();
         Progressions = new List<Progression>();
     }
