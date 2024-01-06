@@ -21,6 +21,7 @@ public class User
     public string LastName { get; set; }
     
     // Connections
+    public List<Game> Wishlist;
     public List<Review> Reviews;
     public List<Progression> Progressions;
     public List<PaymentData> PaymentDatas;
@@ -34,5 +35,6 @@ public class User
         PaymentDatas = new List<PaymentData>();
         Reviews = new List<Review>();
         Progressions = new List<Progression>();
+        Wishlist = new List<Game>();
     }
 }
