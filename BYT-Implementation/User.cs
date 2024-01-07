@@ -25,6 +25,8 @@ public class User
     public List<Review> Reviews;
     public List<Progression> Progressions;
     public List<PaymentData> PaymentDatas;
+    public Dictionary<Game,List<Session>> GameSessions;
+    public Session CurrentSession;
     
     public User(string login, DateOnly birthDate, string name, string lastName)
     {
@@ -37,6 +39,8 @@ public class User
         Progressions = new List<Progression>();
         Wishlist = new List<Game>();
     }
+    
+    // Methods
     
     public void EditProfile() {
         
