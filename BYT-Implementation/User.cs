@@ -46,7 +46,8 @@ public class User
         
     }
 
-    public void TickPayment() {
+    public void TickPayment(int paymentId) {
+        PaymentDatas[paymentId].TickPayment();
     }
 
     public void ShowWishList()

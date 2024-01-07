@@ -11,4 +11,9 @@ public class PaymentData
         User = user;
         user.PaymentDatas.Add(this);
     }
+
+    public void TickPayment()
+    {
+        
+    }
 }

@@ -80,6 +80,8 @@ public class Game
 
     public void TurnTheGameOn(User user)
     {
+        if (user.CurrentSession != null)
+            throw new ApplicationException("User is already playing.");
         var deviceToUse = (from gamingPlatform in GamingPlatforms
             from device in gamingPlatform.Devices
             where !device.IsUsed

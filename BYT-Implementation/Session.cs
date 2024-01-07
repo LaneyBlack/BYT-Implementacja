@@ -21,6 +21,5 @@ public class Session
         IsOpen = true;
         Device = device;
         device.IsUsed = true;
-        
     }
 }
