@@ -27,6 +27,8 @@ public class Review
     public User User { get; init; }
     public Game Game { get; init; }
     
+    // Class methods
+    
     public Review(User user, Game game, int rating, string description)
     {
         Id = user.Login + "-" + game.Name;
@@ -62,6 +64,8 @@ public class Review
     {
         return Id + ":" + Rating;
     }
+    
+    // Methods
 
     public void EditReview(){}
     
