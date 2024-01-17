@@ -6,22 +6,16 @@ public class Device
     // Fields
     protected int Id { get; init; }
     public bool IsUsed { get; set; }
-    protected Session Session { get; set; }
+    public List<Session> Sessions = new();
     
     // Connections
 
-    public readonly List<GamingPlatform> GamingPlatforms;
+    public readonly List<GamingPlatform> GamingPlatforms = new();
 
-    public Device(List<GamingPlatform> gamingPlatforms, int id, bool isUsed, Session session)
+    public Device(int id, bool isUsed, GamingPlatform gamingPlatform)
     {
         Id = id;
         IsUsed = isUsed;
-        GamingPlatforms = gamingPlatforms;
-        Session = session;
-
-        if (gamingPlatforms.Count < 1)
-        {
-            throw new ArgumentException("Device supposed to have at least one gaming platform.");
-        }
+        GamingPlatforms.Add(gamingPlatform);
     }
 }

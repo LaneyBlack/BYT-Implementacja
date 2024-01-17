@@ -6,9 +6,9 @@ public class GamingPlatform
     public string Name { get; init; }
     
     // Connections
-    public readonly List<Device> Devices;
+    public readonly List<Device> Devices = new ();
     
-    public readonly List<Game> Games;
+    public readonly List<Game> Games = new ();
 
     public int NumberOfAllDevices => Devices.Count;
 
@@ -28,13 +28,9 @@ public class GamingPlatform
         }
     }
 
-    public GamingPlatform(List<Device> devices, string name)
+    public GamingPlatform(string name, Device device)
     {
-        Devices = devices;
         Name = name;
-        if (devices.Count < 1)
-            throw new ArgumentException("There are no devices connected to the gaming platform.");
-        
-        Games = new List<Game>();
+        Devices.Add(device);
     }
 }

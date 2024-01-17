@@ -21,23 +21,21 @@ public class User
     public string LastName { get; set; }
     
     // Connections
-    public List<Game> Wishlist;
-    public List<Review> Reviews;
-    public List<Progression> Progressions;
-    public List<PaymentData> PaymentDatas;
-    public Dictionary<Game,List<Session>> GameSessions;
+    public List<Game> Wishlist = new();
+    public List<Review> Reviews = new();
+    public List<Progression> Progressions = new();
+    public List<PaymentData> PaymentDatas = new();
+    public Dictionary<Game,List<Session>> GameSessions = new();
     public Session CurrentSession;
     
-    public User(string login, DateOnly birthDate, string name, string lastName)
+    public User(string login, DateOnly birthDate, string name, string lastName, PaymentData paymentData)
     {
         Login = login;
         BirthDate = birthDate;
         Name = name;
         LastName = lastName;
-        PaymentDatas = new List<PaymentData>();
-        Reviews = new List<Review>();
-        Progressions = new List<Progression>();
-        Wishlist = new List<Game>();
+        
+        PaymentDatas.Add(paymentData);
     }
     
     // Methods

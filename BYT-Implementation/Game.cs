@@ -20,7 +20,7 @@ public class Game
 
     // Connections
 
-    public readonly List<Review> Reviews; // from DB
+    public readonly List<Review> Reviews = new List<Review>(); // from DB
 
     public float AverageRating
     {
@@ -41,12 +41,12 @@ public class Game
         }
     }
 
-    public readonly List<Genre> Genres;
+    public readonly List<Genre> Genres = new();
 
-    public readonly List<GamingPlatform> GamingPlatforms;
+    public readonly List<GamingPlatform> GamingPlatforms = new();
 
     public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate,
-        string publisher, int ageRequirements, List<Genre> genres, List<GamingPlatform> gamingPlatforms)
+        string publisher, int ageRequirements, Genre genre, GamingPlatform gamingPlatform)
     {
         Name = name;
         Price = price;
@@ -55,25 +55,10 @@ public class Game
         ReleaseDate = releaseDate;
         Publisher = publisher;
         AgeRequirements = ageRequirements;
-        if (genres.Count < 1)
-            throw new ArgumentException("The game cannot have no genre");
-        Genres = genres;
-        if (gamingPlatforms.Count > 1)
-            GamingPlatforms = gamingPlatforms;
-
-        Reviews = new List<Review>();
-
+        
+        Genres.Add(genre);
+        GamingPlatforms.Add(gamingPlatform);
         Games.Add(this);
-
-        foreach (var genre in Genres)
-        {
-            genre.Games.Add(this);
-        }
-
-        foreach (var gamingPlatform in GamingPlatforms)
-        {
-            gamingPlatform.Games.Add(this);
-        }
     }
 
     // Methods
@@ -88,7 +73,7 @@ public class Game
             select device).FirstOrDefault();
         if (deviceToUse != null)
         {
-            Session session = new Session(1, DateTime.Today, deviceToUse);
+            Session session = new Session(1, DateTime.Today, deviceToUse, user, this);
             user.CurrentSession = session;
             if (!user.GameSessions.ContainsKey(this))
                 user.GameSessions.Add(this, new List<Session>());
