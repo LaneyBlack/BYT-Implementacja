@@ -17,5 +17,6 @@ public class Device
         Id = id;
         IsUsed = isUsed;
         GamingPlatforms.Add(gamingPlatform);
+        gamingPlatform.Add(this);
     }
 }
