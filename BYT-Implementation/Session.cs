@@ -11,10 +11,10 @@ public class Session
 
     //Connections
     protected Device Device { get; set; }
-    protected User User { get; set; }
+    protected Client Client { get; set; }
     protected Game Game { get; set; }
 
-    public Session(int id, DateTime date, Device device, User user, Game game)
+    public Session(int id, DateTime date, Device device, Client client, Game game)
     {
         Id = id;
         MaxLength = 6;
@@ -23,7 +23,7 @@ public class Session
         IsOpen = true;
         Device = device;
         device.IsUsed = true;
-        User = user;
+        Client = client;
         Game = game;
     }
 }

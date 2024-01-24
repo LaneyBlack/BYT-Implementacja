@@ -24,14 +24,14 @@ public class Review
     
     // Connections
 
-    public User User { get; init; }
+    public Client Client { get; init; }
     public Game Game { get; init; }
     
     // Class methods
     
-    public Review(User user, Game game, int rating, string description)
+    public Review(Client client, Game game, int rating, string description)
     {
-        Id = user.Login + "-" + game.Name;
+        Id = client.Login + "-" + game.Name;
         if (AllReviews.FindIndex(r => r.Id == Id) >= 0)
         {
             throw new ArgumentException("The review with this ID already exists");
@@ -39,12 +39,12 @@ public class Review
         
         Rating = rating;
         Description = description;
-        User = user;
+        Client = client;
         Game = game;
         
         AllReviews.Add(this);
         game.Reviews.Add(this);
-        user.Reviews.Add(this);
+        client.Reviews.Add(this);
     }
 
     public override bool Equals(object? obj)

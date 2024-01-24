@@ -10,14 +10,14 @@ public class Progression
     
     // Connection
     public Game Game { get; set; }
-    public User User { get; set; }
+    public Client Client { get; set; }
 
-    public Progression(string filename, string? nickname, Game game, User user)
+    public Progression(string filename, string? nickname, Game game, Client client)
     {
         Filename = filename;
         Nickname = nickname;
         Game = game;
-        User = user;
-        user.Progressions.Add(this);
+        Client = client;
+        client.Progressions.Add(this);
     }
 }

@@ -21,6 +21,13 @@ public class Game
     // Connections
 
     public readonly List<Review> Reviews = new List<Review>(); // from DB
+    
+    public readonly List<Genre> Genres = new();
+
+    public readonly List<GamingPlatform> GamingPlatforms = new();
+    
+    public readonly List<Client> ClientsFavorite = new();
+    public readonly List<Session> Sessions = new();
 
     public float AverageRating
     {
@@ -41,10 +48,6 @@ public class Game
         }
     }
 
-    public readonly List<Genre> Genres = new();
-
-    public readonly List<GamingPlatform> GamingPlatforms = new();
-
     public Game(string name, float price, List<string> availableLanguages, string description, DateOnly releaseDate,
         string publisher, int ageRequirements, Genre genre, GamingPlatform gamingPlatform)
     {
@@ -63,9 +66,9 @@ public class Game
 
     // Methods
 
-    public void TurnTheGameOn(User user)
+    public void TurnTheGameOn(Client client)
     {
-        if (user.CurrentSession != null)
+        if (client.CurrentSession != null)
             throw new ApplicationException("User is already playing.");
         var deviceToUse = (from gamingPlatform in GamingPlatforms
             from device in gamingPlatform.Devices
@@ -73,11 +76,12 @@ public class Game
             select device).FirstOrDefault();
         if (deviceToUse != null)
         {
-            Session session = new Session(1, DateTime.Today, deviceToUse, user, this);
-            user.CurrentSession = session;
-            if (!user.GameSessions.ContainsKey(this))
-                user.GameSessions.Add(this, new List<Session>());
-            user.GameSessions[this].Add(session);
+            Session session = new Session(1, DateTime.Today, deviceToUse, client, this);
+            client.CurrentSession = session;
+            if (!client.GameSessions.ContainsKey(this))
+                client.GameSessions.Add(this, new List<Session>());
+            client.GameSessions[this].Add(session);
+            Sessions.Add(session);
         }
     }
 

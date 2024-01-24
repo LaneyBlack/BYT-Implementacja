@@ -1,6 +1,6 @@
 ﻿namespace BYT_Implementation;
 
-public class User
+public class Client
 {
     // Fields
     public string Login {get; init;}
@@ -21,21 +21,21 @@ public class User
     public string LastName { get; set; }
     
     // Connections
-    public List<Game> Wishlist = new();
+    public List<Game> FavouritesList = new();
     public List<Review> Reviews = new();
     public List<Progression> Progressions = new();
-    public List<PaymentData> PaymentDatas = new();
+    public List<Payment> Payments = new();
     public Dictionary<Game,List<Session>> GameSessions = new();
     public Session CurrentSession;
     
-    public User(string login, DateOnly birthDate, string name, string lastName, PaymentData paymentData)
+    public Client(string login, DateOnly birthDate, string name, string lastName, Payment payment)
     {
         Login = login;
         BirthDate = birthDate;
         Name = name;
         LastName = lastName;
         
-        PaymentDatas.Add(paymentData);
+        Payments.Add(payment);
     }
     
     // Methods
@@ -45,7 +45,7 @@ public class User
     }
 
     public void TickPayment(int paymentId) {
-        PaymentDatas[paymentId].TickPayment();
+        Payments[paymentId].TickPayment();
     }
 
     public void ShowWishList()
